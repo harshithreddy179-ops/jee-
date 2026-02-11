@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jeeasy | JEE Productivity Check</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="bg-orb orb-a"></div>
+    <div class="bg-orb orb-b"></div>
+    <main class="app-shell">
+      <section class="hero panel">
+        <p class="badge">Jeeasy</p>
+        <h1>Jeeasy Productivity Check</h1>
+        <p>
+          Subject-wise chapter tracker for JEE Mains with priority arrangement
+          inside each subject.
+        </p>
+        <div class="hero-actions">
+          <button id="mark-high-priority" class="btn primary">
+            Mark all High Priority done
+          </button>
+          <button id="reset-all" class="btn ghost">Reset progress</button>
+        </div>
+      </section>
+
+      <section class="stats-grid">
+        <article class="panel stat">
+          <h2>Total Chapters</h2>
+          <strong id="total-count">0</strong>
+        </article>
+        <article class="panel stat">
+          <h2>Completed</h2>
+          <strong id="completed-count">0</strong>
+        </article>
+        <article class="panel stat">
+          <h2>Progress</h2>
+          <strong id="progress-count">0%</strong>
+        </article>
+        <article class="panel stat">
+          <h2>Next Target</h2>
+          <strong id="next-target">-</strong>
+        </article>
+      </section>
+
+      <section class="panel controls">
+        <div class="control-row">
+          <label for="subject-filter">Subject</label>
+          <select id="subject-filter">
+            <option value="all">All</option>
+            <option value="Physics">Physics</option>
+            <option value="Chemistry">Chemistry</option>
+            <option value="Mathematics">Mathematics</option>
+          </select>
+        </div>
+        <div class="control-row">
+          <label for="priority-filter">Priority</label>
+          <select id="priority-filter">
+            <option value="all">All</option>
+            <option value="High">High</option>
+            <option value="Medium">Medium</option>
+            <option value="Low">Low</option>
+          </select>
+        </div>
+        <div class="control-row full">
+          <label for="search">Search chapter</label>
+          <input id="search" type="text" placeholder="Electrostatics, Organic..." />
+        </div>
+      </section>
+
+      <section class="panel">
+        <div class="section-title">
+          <h2>Subject-Wise Checklist</h2>
+          <p>Each subject is grouped separately, and chapters are sorted by priority.</p>
+        </div>
+        <div id="subject-groups" class="subject-groups"></div>
+      </section>
+    </main>
+
+    <template id="subject-template">
+      <section class="subject-block">
+        <div class="subject-header">
+          <h3 class="subject-title"></h3>
+          <span class="subject-progress"></span>
+        </div>
+        <div class="chapter-list"></div>
+      </section>
+    </template>
+
+    <template id="chapter-template">
+      <article class="chapter-card">
+        <label class="chapter-main">
+          <input type="checkbox" />
+          <span class="chapter-name"></span>
+        </label>
+        <div class="chapter-meta">
+          <span class="chip priority"></span>
+          <span class="chip weightage"></span>
+        </div>
+      </article>
+    </template>
+
+    <script src="app.js"></script>
+  </body>
+</html>
